@@ -1,13 +1,213 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+}
+
+.cardContainer {
+  height: max-content;
+  margin: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+}
+.card {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  margin: 10px ;
+  background: #000;
+  border-radius: 15px;
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+}
+
+
+.face {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.face.face1 {
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.face.face1 h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.text-card {
+ color: #fffc00;
+}
+
+
+.face.face2 {
+  transition: 0.5s;
+}
+
+.face.face2 h2 {
+  margin: 10px;
+  padding: 0;
+  font-size: 2em;
+  color: rgba(0, 0, 0, 0.442);
+  transition: 0.5s;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+
+
+.card:hover .face.face2 {
+  height: 60px;
+}
+
+.card:hover .face.face2 h2 {
+  font-size: 1em;
+}
+
+
+.card:nth-child(1) .face.face2, .username, .user, .Link-card {
+  background-image: linear-gradient(40deg,
+      #ddff8f 0%,
+      #3b91ed 50%,
+      #b9dc09 100%);
+  border-radius: 15px;
+  background-size: 300% 300%;
+	animation: gradient 5s ease infinite;
+
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.waviy {
+  position: relative;
+  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, 0.384));
+  font-size: 60px;
+  margin-bottom: 80px;
+}
+
+.waviy h1 {
+  position: relative;
+  display: inline-block;
+  color: rgb(0, 0, 0);
+  animation: waviy 1s infinite ease-in-out;
+  margin-bottom: -5px;
+  margin-top: 10px;
+}
+
+@keyframes waviy {
+
+  0%,
+  100% {
+    transform: translateY(0px)
+  }
+
+  50% {
+    transform: translateY(-15px)
+  }
+}
+
+
+.Comments{
+  background-color: #000;
+  height: 100vh;
+}
+
+.cardCommnet {
+  width: 40%;
+  height: 100%;
+  object-fit:cover;
+  margin: 10px;
+  -webkit-box-reflect:below 2px linear-gradient(transparent, transparent, #0004);
+  color: rgb(255, 255, 255);
+  transform-origin:center;
+  transform:perspective(800px) rotateY(25deg);
+  transition:0.5s;
+}
+.CommentContainer {
+  padding: 10px;
+  width:100%;
+  max-height:350px;
+  background-color: #000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  
+}
+.CommentContainer:hover .cardCommnet {
+  opacity:0.3;
+}
+.CommentContainer .cardCommnet:hover {
+  transform:perspective(800px)       rotateY(0deg);
+  opacity:1;
+}
+
+.userContainer{
+  padding: 10px;
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  background-color: #000;
+} 
+
+.username{
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding-left: 20px;
+  width: 50%;
+  margin: 0;
+} 
+
+.user, .Link-card{
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding-left: 20px;
+  width: 30%;
+  margin: 0;
+}
+
+.Link-card {
+  padding: 0;
+  width: 150px;
+  position: fixed;
+  bottom: 30px;
+  right: 10px;
+  justify-content: center;
+  text-decoration: none;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 23px;
 }
